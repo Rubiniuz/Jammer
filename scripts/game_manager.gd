@@ -1,15 +1,17 @@
 extends Node
+# to get this manager use $"/root/GameManager"
 
 # Editor references
 @onready var timer: Timer = %Timer
-@onready var timer_status: TextureProgressBar = %TimerStatus
+@onready var timer_interface: Control = %TimerInterface
+@onready var timer_status: TextureProgressBar = timer_interface.get_node("%TimerStatus")
 
 # File references
 @export var startScene : PackedScene = null
 @export var gameScene : PackedScene = null
 
 # Variables
-@export var gatherTime : float = 60.0
+@export var gatherTime : int = 60.0
 
 # Components
 #@export var inventory : Inventory = null
@@ -20,11 +22,10 @@ extends Node
 func _ready() -> void:
 	print("GameManager Init!")
 	timer.wait_time = gatherTime
-	timer_status.max_value = gatherTime
 	
-	get_tree().change_scene(startScene)
+	#get_tree().change_scene(startScene)
+	startTimer()
 	print("GameManager Started!")
-	# to get this manager use $"/root/GameManager"
 
 func _process(_delta: float) -> void:
 	if timer.time_left > 0:
