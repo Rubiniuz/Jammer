@@ -3,7 +3,7 @@ extends Node
 
 # Editor references
 @onready var timer: Timer = %Timer
-@onready var timer_interface: Control = %TimerInterface
+@onready var timer_interface: Control = %Player.get_node("%TimerInterface")
 @onready var timer_status: TextureProgressBar = timer_interface.get_node("%TimerStatus")
 
 # File references
@@ -11,7 +11,7 @@ extends Node
 @export var gameScene : PackedScene = null
 
 # Variables
-@export var gatherTime : int = 60.0
+@export var gatherTime : int = 60
 
 # Components
 #@export var inventory : Inventory = null

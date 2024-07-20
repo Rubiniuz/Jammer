@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://beglxb6rt7clb"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_sqmmj"]
-[ext_resource type="PackedScene" uid="uid://bdud3tr2noc70" path="res://scenes/timer_interface.tscn" id="2_k3uxx"]
+[ext_resource type="PackedScene" uid="uid://b31hpak8ve76w" path="res://Characters/player.tscn" id="2_g6d44"]
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_sqmmj")
@@ -11,9 +11,9 @@ unique_name_in_owner = true
 wait_time = 60.0
 one_shot = true
 
-[node name="TimerInterface" parent="." instance=ExtResource("2_k3uxx")]
-unique_name_in_owner = true
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_g6d44")]
+unique_name_in_owner = true
 
 [connection signal="timeout" from="Timer" to="." method="enterGame"]

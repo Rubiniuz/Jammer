@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/BagOfHolding.gd" id="1_lbt14"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uiv25"]
+radius = 36.0139
 
 [node name="BagOfHolding" type="Area2D"]
 collision_layer = 0

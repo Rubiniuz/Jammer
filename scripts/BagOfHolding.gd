@@ -1,13 +1,19 @@
 extends Area2D
 class_name BagOfHolding
 
+@onready var collision_shape_2d = $CollisionShape2D
+
 @export var holdableValue : int = 5
 @export var heldResources : Array[resource] = []
 @export var currentValue : int = 0
+@export var pickupRadius : float = 36
 
 var inRange : Array[resource] = []
 
-func _physics_process(delta): # always 60fps check
+func _ready():
+	collision_shape_2d.shape.radius = pickupRadius
+
+func _physics_process(_delta): # always 60fps check
 	# check input if so pickup first item in array
 	if(Input.is_action_pressed("pickup")): # E
 		_try_add_item()

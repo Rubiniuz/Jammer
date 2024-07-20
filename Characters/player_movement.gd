@@ -1,8 +1,14 @@
 extends CharacterBody2D
 
+# components
+@onready var bag_of_holding = %BagOfHolding
+
+# nodes
+
+# variables
 @export var move_speed : float = 100
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	#get input direction
 	var input_direction = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
@@ -10,7 +16,7 @@ func _physics_process(_delta):
 	)
 	
 	#update velocity
-	velocity = input_direction * move_speed
+	velocity = input_direction * move_speed * delta
 	
 	#move and slide function uses velocity of character body to move character on map
 	move_and_slide()

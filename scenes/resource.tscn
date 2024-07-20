@@ -6,6 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ykhbq"]
 
 [node name="Resource" type="Area2D"]
+collision_layer = 5
 script = ExtResource("1_y4m3p")
 
 [node name="ItemPickup" parent="." node_paths=PackedStringArray("item") instance=ExtResource("2_u3c5q")]
