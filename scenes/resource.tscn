@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bk3li5ljapylm"]
+[gd_scene load_steps=4 format=3 uid="uid://bk3li5ljapylm"]
 
 [ext_resource type="Script" path="res://scripts/resource.gd" id="1_y4m3p"]
+[ext_resource type="PackedScene" uid="uid://bp14iux0m8wpo" path="res://scenes/item_pickup.tscn" id="2_u3c5q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ykhbq"]
 
 [node name="Resource" type="Area2D"]
 script = ExtResource("1_y4m3p")
+
+[node name="ItemPickup" parent="." node_paths=PackedStringArray("item") instance=ExtResource("2_u3c5q")]
+item = NodePath("..")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 
