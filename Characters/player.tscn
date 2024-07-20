@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://b31hpak8ve76w"]
+
+[ext_resource type="Script" path="res://Characters/player_movement.gd" id="1_371u7"]
+[ext_resource type="PackedScene" uid="uid://gtlpeqsa7tmm" path="res://scenes/bag_of_holding.tscn" id="2_t2u4w"]
+[ext_resource type="Texture2D" uid="uid://c3ayax6ju3v7q" path="res://icon.svg" id="3_2mm5m"]
+[ext_resource type="PackedScene" uid="uid://bdud3tr2noc70" path="res://scenes/timer_interface.tscn" id="4_4fuy8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vx633"]
+radius = 25.1794
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_371u7")
+move_speed = 1000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vx633")
+
+[node name="BagOfHolding" parent="." instance=ExtResource("2_t2u4w")]
+unique_name_in_owner = true
+pickupRadius = 60.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_2mm5m")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+
+[node name="TimerInterface" parent="." instance=ExtResource("4_4fuy8")]
+unique_name_in_owner = true

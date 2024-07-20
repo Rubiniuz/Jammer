@@ -1,16 +1,27 @@
-[gd_scene format=3 uid="uid://bdud3tr2noc70"]
+[gd_scene load_steps=3 format=3 uid="uid://bdud3tr2noc70"]
+
+[ext_resource type="Texture2D" uid="uid://cfo31kpnxtjkp" path="res://Textures/watch.png" id="1_id87c"]
+[ext_resource type="Texture2D" uid="uid://bxiumo7q0s6ty" path="res://Textures/watch_middle.png" id="2_v2qcn"]
 
 [node name="TimerInterface" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.1, 0.1)
 
 [node name="TimerStatus" type="TextureProgressBar" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+max_value = 60.0
 fill_mode = 4
+texture_under = ExtResource("1_id87c")
+texture_progress = ExtResource("2_v2qcn")
+tint_progress = Color(1, 0, 0, 0.6)
+radial_center_offset = Vector2(65, 65)
