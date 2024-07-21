@@ -18,12 +18,23 @@ func _physics_process(_delta): # always 60fps check
 	if(Input.is_action_pressed("pickup")): # E
 		_try_add_item()
 
+func Deposit() -> Array[resource]:
+	if(heldResources.size() > 0):
+		return heldResources
+	return []
+
+func Reset():
+	heldResources = []
+	currentValue = 0
+
 func _try_add_item():
 	if(inRange.size() <= 0):
 		return
-	if(currentValue + inRange[0].value < holdableValue):
+	if(currentValue + inRange[0].value <= holdableValue):
 		heldResources.push_back(inRange.pop_front())
 		currentValue = currentValue + heldResources.back().pickup()
+		GameManager.startTimer()
+		print(currentValue)
 	else:
 		# play animation on item
 		return

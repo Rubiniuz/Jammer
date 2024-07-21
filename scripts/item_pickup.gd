@@ -8,11 +8,15 @@ class_name ItemPickup
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pickup_text.value = text.format({"input": "E", "item" : item.id})
-	pickup_text.hidden = true
+	print(item)
+	if(item):
+		pickup_text.text = text.format({"input": "E/Enter", "item" : item.id})
+	else:
+		pickup_text.text = text.format({"input": "E/Enter"})
+	pickup_text.visible = false
 
 func Highlight():
-	pickup_text.hidden = false
+	pickup_text.visible = true
 	
 func DeHighlight():
-	pickup_text.hidden = true
+	pickup_text.visible = false

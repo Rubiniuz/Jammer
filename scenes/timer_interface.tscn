@@ -17,8 +17,10 @@ scale = Vector2(0.1, 0.1)
 [node name="TimerStatus" type="TextureProgressBar" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
+offset_left = 10010.0
+offset_top = -10.0
+offset_right = 11930.0
+offset_bottom = 1070.0
 max_value = 60.0
 fill_mode = 4
 texture_under = ExtResource("1_id87c")

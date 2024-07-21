@@ -1,7 +1,8 @@
 extends CharacterBody2D
+class_name Player
 
 # components
-@onready var bag_of_holding = %BagOfHolding
+@onready var bag = %BagOfHolding
 
 # nodes
 

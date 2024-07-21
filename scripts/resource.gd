@@ -2,31 +2,30 @@ extends Area2D
 class_name resource
 
 # nodes
-@onready var sprite_2d: Sprite2D = $Sprite2D
-@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
-@onready var timer: Timer = $Timer
-@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-@onready var item_pickup = $ItemPickup
+@onready var sprite: Sprite2D = %Sprite
+@onready var pickup_sound: AudioStreamPlayer2D = %PickupSound
+@onready var timer: Timer = %Timer
 
-@export var sprite : Texture = null
-@export var pickupSound : AudioStream = null
+@onready var collider: CollisionShape2D = %Collider
+
+@onready var item_pickup: ItemPickup = %ItemPickup
 
 # variables
-@export var value : int = 1
+@export_range(1,5) var value : int = 1
 @export var id : String = ""
 @export var description : String = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	sprite_2d.texture = sprite
-	audio_stream_player_2d.stream = pickupSound
+	pass
 
 # call this generic function when you grab an item
 func pickup() -> int:
-	collision_shape_2d.disabled = true
-	sprite_2d.visible = false
-	audio_stream_player_2d.play()
-	timer.start()
+	collider.disabled = true
+	sprite.visible = false
+	pickup_sound.play()
+	dehighlight()
+	# timer.start() # Actually kill object. this creates a bug needs a rework of data structures (1 game object connected to a non freeable structure)
 	return value
 
 func highlight():
