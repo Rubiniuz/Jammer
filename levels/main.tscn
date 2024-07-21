@@ -1,27 +1,42 @@
-[gd_scene load_steps=5 format=3 uid="uid://chux0e58wklf1"]
+[gd_scene load_steps=6 format=3 uid="uid://chux0e58wklf1"]
 
 [ext_resource type="PackedScene" uid="uid://cgdnp1kcbepyj" path="res://scenes/Items/test.tscn" id="1_5jbb3"]
 [ext_resource type="Texture2D" uid="uid://cg1m06vt4yrqu" path="res://Textures/dungeon.png" id="1_v1gqi"]
 [ext_resource type="PackedScene" uid="uid://ckojq7auayp4b" path="res://scenes/Items/bigtest.tscn" id="2_wkg7h"]
 [ext_resource type="PackedScene" uid="uid://cugq15l7vrmt4" path="res://scenes/drop_off.tscn" id="3_8321o"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lwjn"]
+size = Vector2(71, 133)
+
 [node name="Main" type="Node2D"]
 
 [node name="World" type="Node" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="World"]
+[node name="Background" type="Sprite2D" parent="World"]
 texture = ExtResource("1_v1gqi")
 
 [node name="DropOff" parent="World" instance=ExtResource("3_8321o")]
-position = Vector2(106, -572)
+position = Vector2(107, -565)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="World"]
+[node name="WorldBounds" type="StaticBody2D" parent="World"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/StaticBody2D"]
-visible = false
-polygon = PackedVector2Array(-1, -37, -1, -176, 68, -176, 68, -242, 0, -242, -1, -519, -65, -517, -65, -380, -418, -379, -417, -733, -65, -731, -64, -593, -2, -594, -1, -664, 69, -662, 69, -731, 143, -730, 145, -663, 212, -662, 212, -595, 276, -596, 277, -733, 628, -731, 630, -594, 630, -516, 628, -379, 276, -379, 276, -518, 213, -518, 212, -240, 145, -240, 145, -178, 490, -176, 490, 176, 144, 176, 145, 238, 211, 240, 213, 453, 74, 453, 75, 516, 211, 517, 212, 732, -140, 731, -141, 662, -203, 664, -203, 732, -556, 731, -556, 516, -419, 517, -419, 453, -556, 452, -556, 240, -344, 241, -340, 309, -278, 306, -278, 239, -210, 238, -210, 173, -209, 37, -273, 39, -273, 107, -487, 106, -488, 38, -550, 37, -551, 178, -695, 176, -695, -177, -551, -177, -549, -39, -487, -39, -487, -108, -418, -108, -418, -177, -343, -176, -342, -109, -273, -108, -272, -38, -209, -39, -209, -178, -66, -177, -64, -40)
-disabled = true
-one_way_collision = true
+[node name="Outer" type="CollisionPolygon2D" parent="World/WorldBounds"]
+polygon = PackedVector2Array(-64, -39, -65, -177, -208, -176, -210, -39, -272, -39, -271, -107, -486, -106, -487, -39, -550, -41, -551, -176, -696, -176, -696, 170, -552, 173, -550, 43, -488, 40, -488, 107, -276, 107, -275, 38, -209, 38, -212, 230, -279, 237, -281, 307, -342, 308, -345, 238, -556, 239, -559, 452, -421, 455, -420, 518, -554, 516, -556, 734, -204, 734, -206, 662, -142, 662, -140, 732, 211, 731, 213, 520, 77, 518, 77, 456, 212, 453, 212, 238, 146, 237, 146, 179, 493, 175, 489, -179, 147, -178, 146, -241, 210, -241, 213, -518, 272, -515, 277, -380, 630, -381, 627, -732, 276, -732, 274, -598, 218, -596, 213, -666, -2, -664, -4, -593, -63, -596, -63, -734, -419, -733, -415, -379, -65, -382, -62, -521, -1, -518, 1, -236, 65, -239, 67, -178, -1, -179, -3, -42, -64, -39, -28, -215, -35, -333, -444, -343, -450, -767, 659, -763, 745, -562, 661, -345, 270, -345, 250, -215, 518, -207, 532, 212, 253, 213, 259, 772, -594, 772, -588, 224, -730, 216, -733, 83, -726, -210, -528, -208, -234, -207, -63, -204, -28, -214)
+
+[node name="Inner2" type="CollisionShape2D" parent="World/WorldBounds"]
+position = Vector2(-311, 449)
+shape = SubResource("RectangleShape2D_5lwjn")
+
+[node name="Inner3" type="CollisionShape2D" parent="World/WorldBounds"]
+position = Vector2(-175, 523)
+shape = SubResource("RectangleShape2D_5lwjn")
+
+[node name="Inner4" type="CollisionShape2D" parent="World/WorldBounds"]
+position = Vector2(-31, 450)
+shape = SubResource("RectangleShape2D_5lwjn")
+
+[node name="Inner" type="CollisionPolygon2D" parent="World/WorldBounds"]
+polygon = PackedVector2Array(-63, 306, -3, 307, -1, 240, 66, 239, 69, 177, -2, 174, -3, 35, -64, 37, -64, 177, -133, 178, -133, 238, -66, 241)
 
 [node name="Items" type="Node" parent="."]
 
@@ -35,7 +50,7 @@ position = Vector2(43, 132)
 
 [node name="Resource2" parent="Items" instance=ExtResource("1_5jbb3")]
 z_index = 0
-position = Vector2(-136, -36)
+position = Vector2(-144, -14)
 
 [node name="Resource3" parent="Items" instance=ExtResource("1_5jbb3")]
 z_index = 0
@@ -48,3 +63,39 @@ position = Vector2(151, -111)
 [node name="Resource5" parent="Items" instance=ExtResource("2_wkg7h")]
 z_index = 0
 position = Vector2(436, 132)
+
+[node name="Resource7" parent="Items" instance=ExtResource("2_wkg7h")]
+z_index = 0
+position = Vector2(517, -545)
+
+[node name="Resource8" parent="Items" instance=ExtResource("2_wkg7h")]
+z_index = 0
+position = Vector2(-345, -447)
+
+[node name="Resource9" parent="Items" instance=ExtResource("2_wkg7h")]
+z_index = 0
+position = Vector2(-504, 679)
+
+[node name="Resource10" parent="Items" instance=ExtResource("1_5jbb3")]
+z_index = 0
+position = Vector2(-616, 54)
+
+[node name="Resource11" parent="Items" instance=ExtResource("1_5jbb3")]
+z_index = 0
+position = Vector2(-394, 3)
+
+[node name="Resource12" parent="Items" instance=ExtResource("1_5jbb3")]
+z_index = 0
+position = Vector2(-242, 278)
+
+[node name="Resource13" parent="Items" instance=ExtResource("1_5jbb3")]
+z_index = 0
+position = Vector2(89, 565)
+
+[node name="Resource14" parent="Items" instance=ExtResource("1_5jbb3")]
+z_index = 0
+position = Vector2(-91, 432)
+
+[node name="Resource15" parent="Items" instance=ExtResource("1_5jbb3")]
+z_index = 0
+position = Vector2(-472, 343)

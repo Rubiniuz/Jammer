@@ -32,11 +32,13 @@ color = Color(0.544974, 0.544974, 0.544974, 1)
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/ColorRect"]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.313726)
-self_modulate = Color(1, 1, 1, 0.313726)
+modulate = Color(1, 1, 1, 0.705882)
+self_modulate = Color(1, 1, 1, 0.705882)
+clip_contents = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+expand_mode = 1

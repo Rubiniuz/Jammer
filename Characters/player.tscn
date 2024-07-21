@@ -57,7 +57,7 @@ unique_name_in_owner = true
 pickupRadius = 60.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
 
