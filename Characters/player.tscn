@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b31hpak8ve76w"]
+[gd_scene load_steps=7 format=3 uid="uid://b31hpak8ve76w"]
 
 [ext_resource type="Script" path="res://Characters/player_movement.gd" id="1_371u7"]
 [ext_resource type="PackedScene" uid="uid://gtlpeqsa7tmm" path="res://scenes/bag_of_holding.tscn" id="2_t2u4w"]
 [ext_resource type="Texture2D" uid="uid://c3ayax6ju3v7q" path="res://icon.svg" id="3_2mm5m"]
+[ext_resource type="PackedScene" uid="uid://byovkyti7ma27" path="res://scenes/bag_interface.tscn" id="4_0fsth"]
 [ext_resource type="PackedScene" uid="uid://bdud3tr2noc70" path="res://scenes/timer_interface.tscn" id="4_4fuy8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vx633"]
@@ -12,6 +13,37 @@ radius = 12.0416
 z_index = 10
 script = ExtResource("1_371u7")
 move_speed = 1000.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_scale = 1.12
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Bag_Interface" parent="CanvasLayer/Control/MarginContainer" instance=ExtResource("4_0fsth")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TimerInterface" parent="CanvasLayer/Control/MarginContainer" instance=ExtResource("4_4fuy8")]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vx633")
@@ -24,15 +56,9 @@ texture = ExtResource("3_2mm5m")
 unique_name_in_owner = true
 pickupRadius = 60.0
 
-[node name="TimerInterface" parent="." instance=ExtResource("4_4fuy8")]
-unique_name_in_owner = true
-offset_left = -774.0
-offset_top = -212.0
-offset_right = -774.0
-offset_bottom = -212.0
-
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
 position_smoothing_speed = 7.0
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]

@@ -2,6 +2,7 @@ extends Area2D
 class_name BagOfHolding
 
 @onready var collision_shape_2d = $CollisionShape2D
+@onready var ui : BagInterface = get_parent().get_node("%Bag_Interface")
 
 @export var holdableValue : int = 5
 @export var heldResources : Array[resource] = []
@@ -26,6 +27,7 @@ func Deposit() -> Array[resource]:
 func Reset():
 	heldResources = []
 	currentValue = 0
+	ui.Clear()
 
 func _try_add_item():
 	if(inRange.size() <= 0):
@@ -34,7 +36,7 @@ func _try_add_item():
 		heldResources.push_back(inRange.pop_front())
 		currentValue = currentValue + heldResources.back().pickup()
 		GameManager.startTimer()
-		print(currentValue)
+		ui.AddItem(heldResources.back())
 	else:
 		# play animation on item
 		return

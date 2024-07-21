@@ -8,7 +8,6 @@ class_name ItemPickup
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(item)
 	if(item):
 		pickup_text.text = text.format({"input": "E/Enter", "item" : item.id})
 	else:
