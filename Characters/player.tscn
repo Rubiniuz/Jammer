@@ -6,28 +6,33 @@
 [ext_resource type="PackedScene" uid="uid://bdud3tr2noc70" path="res://scenes/timer_interface.tscn" id="4_4fuy8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vx633"]
-radius = 25.1794
+radius = 12.0416
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 10
 script = ExtResource("1_371u7")
 move_speed = 1000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vx633")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1875, 0.1875)
+texture = ExtResource("3_2mm5m")
+
 [node name="BagOfHolding" parent="." instance=ExtResource("2_t2u4w")]
 unique_name_in_owner = true
 pickupRadius = 60.0
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position_smoothing_enabled = true
-position_smoothing_speed = 7.0
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("3_2mm5m")
-
-[node name="AudioListener2D" type="AudioListener2D" parent="."]
-
 [node name="TimerInterface" parent="." instance=ExtResource("4_4fuy8")]
 unique_name_in_owner = true
+offset_left = -774.0
+offset_top = -212.0
+offset_right = -774.0
+offset_bottom = -212.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+position_smoothing_speed = 7.0
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]

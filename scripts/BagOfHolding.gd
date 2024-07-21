@@ -18,6 +18,15 @@ func _physics_process(_delta): # always 60fps check
 	if(Input.is_action_pressed("pickup")): # E
 		_try_add_item()
 
+func Deposit() -> Array[resource]:
+	if(heldResources.size() > 0):
+		return heldResources
+	return []
+
+func Reset():
+	heldResources = []
+	currentValue = 0
+
 func _try_add_item():
 	if(inRange.size() <= 0):
 		return

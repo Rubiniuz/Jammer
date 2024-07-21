@@ -24,8 +24,8 @@ func pickup() -> int:
 	collider.disabled = true
 	sprite.visible = false
 	pickup_sound.play()
-	timer.start()
 	dehighlight()
+	# timer.start() # Actually kill object. this creates a bug needs a rework of data structures (1 game object connected to a non freeable structure)
 	return value
 
 func highlight():

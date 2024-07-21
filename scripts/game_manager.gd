@@ -4,6 +4,7 @@ extends Node
 # Editor references
 @onready var timer: Timer = %Timer
 @onready var timer_interface: Control = %Player.get_node("%TimerInterface")
+@onready var bag: BagOfHolding = %Player.get_node("%BagOfHolding")
 @onready var timer_status: TextureProgressBar = timer_interface.get_node("%TimerStatus")
 
 # File references
@@ -12,6 +13,7 @@ extends Node
 
 # Variables
 @export var gatherTime : int = 60
+@export var storedResources : Array[resource] = []
 
 # Components
 @export var dropOff : DropOff = null : set = setDropOff
@@ -42,3 +44,10 @@ func enterGame():
 func setDropOff(node:DropOff):
 	if(node is DropOff):
 		dropOff = node
+
+func addResources():
+	if(bag.heldResources.size() > 0):
+		print(bag.heldResources)
+		storedResources.append_array(bag.heldResources)
+		print(storedResources.size())
+		bag.Reset()

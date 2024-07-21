@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c3ayax6ju3v7q" path="res://icon.svg" id="2_xtdh8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nflb8"]
-radius = 108.0
+radius = 40.05
 
 [node name="Resource" instance=ExtResource("1_aoick")]
 value = 4
@@ -12,6 +12,7 @@ id = "BigBoi"
 description = "the biggest of bois"
 
 [node name="Sprite" parent="." index="1"]
+scale = Vector2(0.453125, 0.453125)
 texture = ExtResource("2_xtdh8")
 
 [node name="Collider" parent="." index="2"]
