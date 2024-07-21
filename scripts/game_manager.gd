@@ -14,17 +14,13 @@ extends Node
 @export var gatherTime : int = 60
 
 # Components
-#@export var inventory : Inventory = null
-# bag or player ref
-#@export var bag : Bag = null # holding system from beginning of the game
-#@export var player : Player = null
+@export var dropOff : DropOff = null : set = setDropOff
 
 func _ready() -> void:
 	print("GameManager Init!")
 	timer.wait_time = gatherTime
 	
 	#get_tree().change_scene(startScene)
-	startTimer()
 	print("GameManager Started!")
 
 func _process(_delta: float) -> void:
@@ -32,10 +28,17 @@ func _process(_delta: float) -> void:
 		timer_status.value = gatherTime - timer.time_left
 
 func startTimer():
+	if(timer.time_left > 0):
+		return
 	timer.start()
 
 func enterGame():
 	# Handle final inventory requirements
 	# Play transition
 	# Change Game manager functionality - bool?
-	get_tree().change_scene(gameScene)
+	pass
+	#get_tree().change_scene(gameScene)
+
+func setDropOff(node:DropOff):
+	if(node is DropOff):
+		dropOff = node

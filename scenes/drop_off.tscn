@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cugq15l7vrmt4"]
+
+[ext_resource type="Script" path="res://scripts/DropOff.gd" id="1_spt6b"]
+[ext_resource type="PackedScene" uid="uid://bp14iux0m8wpo" path="res://scenes/item_pickup.tscn" id="2_q1yud"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljppx"]
+size = Vector2(188, 164)
+
+[node name="DropOff" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_spt6b")
+
+[node name="ItemPickup" parent="." instance=ExtResource("2_q1yud")]
+text = "Press {input} to drop resources"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ljppx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

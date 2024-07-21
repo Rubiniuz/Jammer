@@ -1,29 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://chux0e58wklf1"]
+[gd_scene load_steps=4 format=3 uid="uid://chux0e58wklf1"]
 
-[ext_resource type="Texture2D" uid="uid://c3ayax6ju3v7q" path="res://icon.svg" id="2_ha8sg"]
+[ext_resource type="PackedScene" uid="uid://cgdnp1kcbepyj" path="res://scenes/Items/test.tscn" id="1_5jbb3"]
+[ext_resource type="PackedScene" uid="uid://ckojq7auayp4b" path="res://scenes/Items/bigtest.tscn" id="2_wkg7h"]
+[ext_resource type="PackedScene" uid="uid://cugq15l7vrmt4" path="res://scenes/drop_off.tscn" id="3_8321o"]
 
 [node name="Main" type="Node2D"]
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(538, 295)
-texture = ExtResource("2_ha8sg")
+[node name="Resource" parent="." instance=ExtResource("1_5jbb3")]
+position = Vector2(-40, -41)
 
-[node name="Icon" type="Sprite2D" parent="Icon"]
-position = Vector2(-447, -224)
-texture = ExtResource("2_ha8sg")
+[node name="Resource2" parent="." instance=ExtResource("1_5jbb3")]
+position = Vector2(-55, 76)
 
-[node name="Icon" type="Sprite2D" parent="Icon/Icon"]
-position = Vector2(971, 461)
-texture = ExtResource("2_ha8sg")
+[node name="Resource3" parent="." instance=ExtResource("1_5jbb3")]
+position = Vector2(102, 37)
 
-[node name="Icon" type="Sprite2D" parent="Icon/Icon/Icon"]
-position = Vector2(-880, -16)
-texture = ExtResource("2_ha8sg")
+[node name="Resource4" parent="." instance=ExtResource("1_5jbb3")]
+position = Vector2(82, -41)
 
-[node name="Icon2" type="Sprite2D" parent="Icon/Icon/Icon"]
-position = Vector2(-213, -419)
-texture = ExtResource("2_ha8sg")
+[node name="Resource5" parent="." instance=ExtResource("2_wkg7h")]
+position = Vector2(56, 176)
 
-[node name="Icon" type="Sprite2D" parent="Icon/Icon/Icon/Icon2"]
-position = Vector2(14, 469)
-texture = ExtResource("2_ha8sg")
+[node name="DropOff" parent="." instance=ExtResource("3_8321o")]
+position = Vector2(195, -6)

@@ -15,5 +15,6 @@ one_shot = true
 
 [node name="Player" parent="." instance=ExtResource("2_g6d44")]
 unique_name_in_owner = true
+move_speed = 15000.0
 
 [connection signal="timeout" from="Timer" to="." method="enterGame"]

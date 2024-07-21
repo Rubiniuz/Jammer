@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckojq7auayp4b"]
+
+[ext_resource type="PackedScene" uid="uid://bk3li5ljapylm" path="res://scenes/resource.tscn" id="1_aoick"]
+[ext_resource type="Texture2D" uid="uid://c3ayax6ju3v7q" path="res://icon.svg" id="2_xtdh8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nflb8"]
+radius = 108.0
+
+[node name="Resource" instance=ExtResource("1_aoick")]
+value = 4
+id = "BigBoi"
+description = "the biggest of bois"
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource("2_xtdh8")
+
+[node name="Collider" parent="." index="2"]
+shape = SubResource("CircleShape2D_nflb8")
