@@ -47,7 +47,7 @@ func setDropOff(node:DropOff):
 
 func addResources():
 	if(bag.heldResources.size() > 0):
-		print(bag.heldResources)
+		#print(bag.heldResources)
 		storedResources.append_array(bag.heldResources)
-		print(storedResources.size())
+		#print(storedResources.size())
 		bag.Reset()
