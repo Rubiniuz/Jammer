@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cje4k30lfsl0n"]
+
+[ext_resource type="Texture2D" uid="uid://dhjfgaclefv7b" path="res://Textures/Factory.png" id="1_guwkl"]
+
+[node name="Factory" type="Node2D"]
+
+[node name="World" type="Node" parent="."]
+
+[node name="Factory_Background" type="Sprite2D" parent="World"]
+position = Vector2(2, -4)
+texture = ExtResource("1_guwkl")

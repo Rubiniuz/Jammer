@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdud3tr2noc70"]
+[gd_scene load_steps=4 format=3 uid="uid://bdud3tr2noc70"]
 
 [ext_resource type="Texture2D" uid="uid://cfo31kpnxtjkp" path="res://Textures/watch.png" id="1_id87c"]
 [ext_resource type="Texture2D" uid="uid://bxiumo7q0s6ty" path="res://Textures/watch_middle.png" id="2_v2qcn"]
+[ext_resource type="Script" path="res://scripts/Timer_switch_scene.gd" id="3_4xsj8"]
 
 [node name="TimerInterface" type="Control"]
 clip_contents = true
@@ -30,3 +31,6 @@ texture_under = ExtResource("1_id87c")
 texture_progress = ExtResource("2_v2qcn")
 tint_progress = Color(1, 0, 0, 0.6)
 radial_center_offset = Vector2(65, 65)
+script = ExtResource("3_4xsj8")
+
+[connection signal="changed" from="TimerStatus" to="TimerStatus" method="_on_changed"]
